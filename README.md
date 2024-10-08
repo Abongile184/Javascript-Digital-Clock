@@ -1,6 +1,6 @@
 # Javascript-Digital-Clock: https://abongile184.github.io/Javascript-Digital-Clock/
 This is a Javascript Digital Alarm Clock that i made as a side project to re inforce my understanding of Object Oriented programming
-- its consists of classes abd methods 
+- it consists of classes and methods 
 - it also makes use of Document Object Model techniques
 - working with sound file(s)
 - date objects
