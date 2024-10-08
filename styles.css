@@ -1,0 +1,365 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
+body{
+  background: #2f363e;
+}
+
+/*  Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+/* Container Styles */
+  .container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow:hidden;
+  }
+
+/* Time Section Styles */
+  #time {
+    display: flex;
+    gap: 40px;
+    color: #fff;
+  }
+
+/* Circle Styles */
+  #time .circle {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* SVG Styles */
+  #time .circle svg {
+    position: relative;
+    width: 150px; 
+    height: 150px; 
+    transform: rotate(270deg); 
+  }
+
+  #time .circle svg circle {
+    width: 100%;
+    height: 100%;
+    fill: transparent;
+    stroke: #191919;
+    stroke-width: 4px;
+    transform: translate(5px, 5px);
+  }
+
+  .pink {
+    --color: #ff2972;
+  }
+  
+  .yellow {
+    --color: #fee800;
+  }
+  
+  .green {
+    --color: #04fc43;
+  }
+
+  #time .circle svg circle:nth-child(2) {
+  stroke: var(--color);
+  stroke-dasharray: 440;
+}
+
+/*  Text and Labels */
+#time div {
+  position: absolute;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+#time div span {
+  position: absolute;
+  transform: translate(-50%, 0px);
+  font-size: 0.5rem;
+  font-weight: 300;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+
+#time .ap {
+  position: relative;
+  font-size: 1rem;
+  transform: translate(-20px);
+}
+
+#time #weekday{
+  transform: translate(0px, 100px);
+}
+
+/*  Dots Styling */
+.dots {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+}
+
+.dots::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  width: 15px;
+  height: 15px;
+  background: var(--color);
+  border-radius: 50%;
+  box-shadow: 0 0 20px var(--color), 0 0 60px var(--color);
+}
+
+.alarm-button-container {
+  position: relative;
+}
+
+.alarm-button {
+  position: absolute;
+  top: 300px;  /* Adjust as necessary */
+  right: -440px;  /* Adjust as necessary */
+  border-radius: 12px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  transform: translateY(-2px);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.alarm-button img {
+  width: 50px;  /* Set size here */
+  height: 50px;
+  filter: invert(100%);  /* Make the icon white */
+}
+
+
+/* Initially hidden modal */
+.modal {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s ease;
+
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4); /* Black with opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 480px; /* Could be more or less depending on screen size */
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  
+   /* Add position relative so that 'top' can be animated */
+   position: relative;
+  
+   /* Apply the animation */
+   -webkit-animation-name: animatetop;
+   -webkit-animation-duration: 0.4s;
+   animation-name: animatetop;
+   animation-duration: 0.4s;
+}
+
+/* Add the animation keyframes */
+@-webkit-keyframes animatetop {
+  from { top: -300px; opacity: 0; } 
+  to { top: 0; opacity: 1; }
+}
+
+@keyframes animatetop {
+  from { top: -300px; opacity: 0; }
+  to { top: 0; opacity: 1; }
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Visible modal */
+.modal.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Clock hidden state */
+#time.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s ease;
+}
+
+/* Clock visible state */
+#time.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* style the model */
+body .display-alarm-set{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.display-alarm-set{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 440px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px 20px 28px;
+}
+
+.display-alarm-set h1 {
+  font-size: 38px;
+  font-weight: 500;
+  margin: 30px 0;
+  text-align: center;
+}
+
+.display-alarm-set .content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;  /* Center the columns horizontally */
+  align-items: center;      /* Center the columns vertically */
+  width: 100%;
+  gap: 10px; /* Add some gap between the columns */
+}
+
+/* Style for each column to center its content */
+.content .column {
+  display: flex;
+  justify-content: center;  /* Center the select horizontally */
+  align-items: center;      /* Center the select vertically */
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid #999;
+  width: calc(100% / 3 - 10px); /* Three equal columns with some gap */
+}
+
+
+/* Style for the select element */
+.column select {
+  outline: none;
+  border: none;
+  height: 25px;
+  width: 100%; /* Ensure the select takes up the full width of the column */
+  font-size: 19px;
+  text-align: center; /* Ensure text inside select is centered */
+}
+
+.display-alarm-set button{
+  width: 97%;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  margin-top: 20px;
+  font-size: 20px;
+  padding: 15px 0;
+  border-radius: 5px;
+  background: #4a98f7;
+  
+}
+
+/* styling the display alarm position */
+.show-alarm-set{
+  position: relative;
+  left: -25%;
+  right: 50%;
+  transform: translate(0px, 150px);
+  vertical-align:middle;
+  border-radius: 10px;
+}
+
+.show-alarm-set .alarm-instance{
+  border: 1px solid cyan;
+  padding: 10px;
+  border-radius: 25px;
+ 
+}
+
+.delete {
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 16px;
+  border: none;
+  background: none; 
+  color:#fff;
+}
+
+.delete i {
+  margin-right: 5px;
+}
+
+.delete:focus {
+  outline: none;
+}
+
+
+/* styling the toggle button that turns the alarm on and off */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  transition: all 0.3s;
+  margin-left: 15px;
+}
+.switch::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius:50%;
+  background-color: white;
+  top: 1px;
+  left: 1px;
+  transition: all 0.3s;
+}
+
+.checkbox:checked + .switch::after {
+  left : 20px;
+}
+.checkbox:checked + .switch {
+  background-color: #7983ff;
+}
+.checkbox {
+  display : none;
+}

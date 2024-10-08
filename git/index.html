@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+    <!--Meta data-->
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="Digital Clock">
+    <meta name="author" content="Abongile Arthur Mavela">
+    <title>Digital Clock</title>
+    <link rel="icon" type="image/png" href="favicon-image/favicon-32x32.png" sizes="32x32" />
+
+    <!--font awesome icons CND-->
+    <script src="https://kit.fontawesome.com/5e4a242428.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="app.js" defer></script>
+    <script type="text/javascript" src="theme.js" defer></script>
+</head>
+<body>
+
+    <div class="container">
+
+        <div id="time">
+          <!-- hour circle or svg-->
+          <div class="circle" style="--color: #ff2972">
+            <div class="dots h_dot"></div>
+            <svg>
+              <circle cx="70" cy="70" r="70"></circle>
+              <circle cx="70" cy="70" r="70" id="hh"></circle>
+            </svg>
+            <div id="hours">00</div>
+          </div>
+
+          <!-- minutes circle or svg-->
+          <div class="circle" style="--color:#fee800">
+            <div class="dots m_dot"></div>
+            <svg>
+              <circle cx="70" cy="70" r="70"></circle>
+              <circle cx="70" cy="70" r="70" id="mm"></circle>
+            </svg>
+            <div id="minutes">00</div>
+          </div>
+
+          <!-- seconds circle or svg-->
+          <div class="circle" style="--color:#04fc43">
+            <div class="dots s_dot"></div>
+            <svg>
+              <circle cx="70" cy="70" r="70"></circle>
+              <circle cx="70" cy="70" r="70" id="ss"></circle>
+            </svg>
+            <div id="seconds">00</div>
+          </div>
+
+          <div class="ap">
+            <div id="ampm">AM</div>
+            <div id="weekday"> </div>
+          </div>
+
+        </div>
+
+        <div class="alarm">
+          <div class="alarm-button">
+            <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/alarm-clock--v1.png" alt="alarm-clock--v1" title="add alarm"/>
+          </div>
+        </div>
+
+        <div class="display-alarm-set">
+          
+        </div>
+        
+      </div>
+
+</body>
+</html>
