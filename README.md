@@ -9,12 +9,12 @@ i also wanted to add another feature where once the alarm rings a model with a q
 and then alarm ringtone stops also but the more features i add the longer my methods
 
 issues:
--dynamically creating html elements impacted my user interface
--this use of OOP made the program slower in terms of performance 
--code needs to be optimized 
--button controls on each alarm instance created need to work independently for some reason when you add multiple alarm instances 
+- dynamically creating html elements impacted my user interface
+- this use of OOP made the program slower in terms of performance 
+- code needs to be optimized 
+- button controls on each alarm instance created need to work independently for some reason when you add multiple alarm instances 
 only the first alarm can be turned on and off 
--for the add alarm button,  the button does not respond it has to clicked twice 
+- for the add alarm button,  the button does not respond it has to clicked twice 
 
 
 ![digitalclock](https://github.com/user-attachments/assets/0d53af48-1a5a-4a73-a7ce-d51e584d12bf)
